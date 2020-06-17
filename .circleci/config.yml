@@ -59,11 +59,15 @@ jobs:
           deployment: circle-ci-cluster
           container: dominic-backend
           image: gcr.io/circle-ci-demo-280609/circle-gke:v2
-
-  deploy_k8s:
+  deploy_new:
     description: Deploy application to Google Kubernetes Engine
     machine: true
     steps:
+      # Install `gcloud` and `kubectl` if not already installed.
+      - gcp-gke/install
+      # Initialize the `gcloud` CLI.
+      - gcp-gke/init
+      # Update a deployment's Docker image.
       - gcp-gke/publish-and-rollout-image:
           cluster: circle-ci-cluster
           container: dominic-backend
@@ -78,7 +82,7 @@ workflows:
       - Build-Push-Image-Docker:
           requires:
             - build_test
-      - deploy_k8s:
+      - deploy_new:
           requires:
             - Build-Push-Image-Docker
       
