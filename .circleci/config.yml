@@ -81,11 +81,11 @@ jobs:
 workflows:
   build_update_deploy:
     jobs:
-      - build_test
-      - Build-Push-Image-Docker:
-          requires:
-            - build_test
+      # - build_test
+      # - Build-Push-Image-Docker:
+      #     requires:
+      #       - build_test
       - deploy_new:
-          requires:
-            - Build-Push-Image-Docker
+          # requires:
+          #   - Build-Push-Image-Docker
       
