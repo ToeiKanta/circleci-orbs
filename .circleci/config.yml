@@ -74,7 +74,7 @@ jobs:
       - gke/rollout-image:
           cluster: circle-ci-cluster
           container: dominic-backend
-          deployment: circle-ci-cluster
+          deployment: production-circle-demo
           image: gcr.io/circle-ci-demo-280609/circle-gke 
           tag: v2
 
