@@ -68,11 +68,11 @@ jobs:
       # Initialize the `gcloud` CLI.
       # - gcp-gke/init
       # Update a deployment's Docker image.
-      - gke/publish-and-rollout-image:
+      - gke/rollout-image:
           cluster: circle-ci-cluster
           container: dominic-backend
           deployment: circle-ci-cluster
-          image: gcr.io/circle-ci-demo-280609/circle-gke
+          image: gcr.io/circle-ci-demo-280609/circle-gke 
           tag: v2
 
 workflows:
