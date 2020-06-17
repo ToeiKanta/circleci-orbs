@@ -18,7 +18,7 @@ spec:
         tier: backend
     spec:
       containers:
-        - image: gcr.io/circle-ci-demo-280609/circleci-gke:v1
+        - image: gcr.io/circle-ci-demo-280609/circle-gke:v2
           name: dominic-backend
           ports:
             - containerPort: 3000
