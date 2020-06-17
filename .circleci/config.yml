@@ -79,7 +79,7 @@ jobs:
           tag: v2
 
 workflows:
-  build_update_deploy:
+  # build_update_deploy:
     jobs:
       # - build_test
       # - Build-Push-Image-Docker:
