@@ -66,7 +66,7 @@ jobs:
       # Install `gcloud` and `kubectl` if not already installed.
       - gke/install
       # Updates the kubectl configuration file with GKE cluster access credentials
-       - gcp-gke/update-kubeconfig-with-credentials
+      - gke/update-kubeconfig-with-credentials
       # Update a deployment's Docker image.
       - gke/rollout-image:
           cluster: circle-ci-cluster
