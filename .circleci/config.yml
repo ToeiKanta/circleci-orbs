@@ -7,6 +7,7 @@ orbs:
 
 jobs:
   build_test:
+    description: Build node and Test
     executor: node/default
     steps:
       - checkout
