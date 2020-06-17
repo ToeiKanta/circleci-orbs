@@ -68,7 +68,7 @@ workflows:
       - build_test
       - Build-Push-Image-Docker:
           requires:
-            - build
+            - build_test
       - deploy:
           requires:
             - Build-Push-Image-Docker
