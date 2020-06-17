@@ -46,8 +46,6 @@ jobs:
       - gcr/push-image:
           image: circle-gke
           tag: "v2"
-
-    
   deploy:
     description: Deploy application to Google Kubernetes Engine
     machine: true
@@ -60,7 +58,7 @@ jobs:
       - gcp-gke/rollout-image:
           deployment: circle-ci-cluster
           container: dominic-backend
-          image: gcr.io/circle-ci-demo/circle-gke:v2
+          image: gcr.io/circle-ci-demo-280609/circle-gke:v2
 
 workflows:
   build_update_deploy:
