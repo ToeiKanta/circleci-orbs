@@ -63,8 +63,10 @@ jobs:
     description: Deploy application to Google Kubernetes Engine
     machine: true
     steps:
+      - checkout
       # Install `gcloud` and `kubectl` if not already installed.
       - gke/install
+      - gcr/gcr-auth
       # Updates the kubectl configuration file with GKE cluster access credentials
       - gke/update-kubeconfig-with-credentials:
           cluster: circle-ci-cluster
