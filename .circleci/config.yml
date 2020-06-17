@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@3.0.0
-  gcp-gke: circleci/gcp-gke@1.0.4
+  gke: circleci/gcp-gke@1.0.4
   gcr: circleci/gcp-gcr@0.0.2
 
 jobs:
@@ -51,11 +51,11 @@ jobs:
     machine: true
     steps:
       # Install `gcloud` and `kubectl` if not already installed.
-      - gcp-gke/install
+      - gke/install
       # Initialize the `gcloud` CLI.
-      - gcp-gke/init
+      - gke/init
       # Update a deployment's Docker image.
-      - gcp-gke/rollout-image:
+      - gke/rollout-image:
           deployment: circle-ci-cluster
           container: dominic-backend
           image: gcr.io/circle-ci-demo-280609/circle-gke:v2
@@ -64,15 +64,15 @@ jobs:
     machine: true
     steps:
       # Install `gcloud` and `kubectl` if not already installed.
-      - gcp-gke/install
+      - gke/install
       # Initialize the `gcloud` CLI.
       # - gcp-gke/init
       # Update a deployment's Docker image.
-      - gcp-gke/publish-and-rollout-image:
+      - gke/publish-and-rollout-image:
           cluster: circle-ci-cluster
           container: dominic-backend
           deployment: circle-ci-cluster
-          image: circle-gke
+          image: gcr.io/circle-ci-demo-280609/circle-gke
           tag: v2
 
 workflows:
