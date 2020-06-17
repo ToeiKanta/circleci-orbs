@@ -73,8 +73,8 @@ jobs:
       # Update a deployment's Docker image.
       - gke/rollout-image:
           cluster: circle-ci-cluster
-          container: production-circle-demo
-          deployment: production-circle-demo
+          container: dominic-backend
+          deployment: circle-ci-cluster
           image: gcr.io/circle-ci-demo-280609/circle-gke 
           tag: v2
 
