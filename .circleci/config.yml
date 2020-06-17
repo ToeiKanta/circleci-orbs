@@ -67,7 +67,7 @@ jobs:
       - gke/install
       # Updates the kubectl configuration file with GKE cluster access credentials
       - gke/update-kubeconfig-with-credentials:
-        cluster: circle-ci-cluster
+          cluster: circle-ci-cluster
       # Update a deployment's Docker image.
       - gke/rollout-image:
           cluster: circle-ci-cluster
