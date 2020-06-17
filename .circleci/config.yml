@@ -62,6 +62,7 @@ jobs:
 
   deploy_k8s:
     description: Deploy application to Google Kubernetes Engine
+    machine: true
     steps:
       - gcp-gke/publish-and-rollout-image:
           cluster: circle-ci-cluster
