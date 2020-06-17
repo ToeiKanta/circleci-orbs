@@ -26,6 +26,14 @@ jobs:
           cache-key: package.json
           # Ignore non-checksum cache hits
           use-strict-cache: true
+  build_test:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          cache-path: ~/project/node_modules
+          override-ci-command: npm install
+      - run: npm run test
   Build-Push-Image-Docker:
     description: Build and push image to Google Container Registry
     machine: true
@@ -57,7 +65,7 @@ jobs:
 workflows:
   build_update_deploy:
     jobs:
-      - build
+      - build_test
       - Build-Push-Image-Docker:
           requires:
             - build
